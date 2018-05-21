@@ -1,0 +1,10 @@
+{
+  "commands": {
+    "bootstrap": "echo hello",
+    "sync": "echo sync"
+  },
+  "repository": "https://github.com/ajmalsiddiqui/dotfiles",
+  "scripts": {
+    "hello": "echo hello"
+  }
+}

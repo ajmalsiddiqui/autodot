@@ -1,0 +1,59 @@
+{
+  "name": "autodot",
+  "description": "A minimal dotfile manager for those magical entities.",
+  "version": "0.1.0",
+  "author": "Mohammed Ajmal Siddiqui @ajmalsiddiqui",
+  "bin": {
+    "autodot": "./bin/run"
+  },
+  "bugs": "https://github.com/ajmalsiddiqui/autodot/issues",
+  "dependencies": {
+    "@oclif/command": "^1.4.13",
+    "@oclif/config": "^1.6.3",
+    "@oclif/plugin-help": "^1.2.4",
+    "nodegit": "^0.22.0"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.13.0",
+    "@oclif/tslint": "^1.1.0",
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^5.0.0",
+    "@types/node": "^9.6.4",
+    "@types/nodegit": "^0.18.7",
+    "globby": "^8.0.1",
+    "ts-node": "^5.0.1",
+    "tslib": "^1.9.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    ".oclif.manifest.json",
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/ajmalsiddiqui/autodot",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "autodot",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "ajmalsiddiqui/autodot",
+  "scripts": {
+    "postpack": "rm -f .oclif.manifest.json",
+    "posttest": "tsc -p . --noEmit && tslint -p . -t stylish",
+    "prepack": "rm -rf lib && tsc && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
