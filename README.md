@@ -4,9 +4,7 @@ autodot
 A minimal dotfile manager for those magical entities.
 
 [![Version](https://img.shields.io/npm/v/autodot.svg)](https://npmjs.org/package/autodot)
-[![CircleCI](https://circleci.com/gh/ajmalsiddiqui/autodot/tree/master.svg?style=shield)](https://circleci.com/gh/ajmalsiddiqui/autodot/tree/master)
 [![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/ajmalsiddiqui/autodot?branch=master&svg=true)](https://ci.appveyor.com/project/ajmalsiddiqui/autodot/branch/master)
-[![Codecov](https://codecov.io/gh/ajmalsiddiqui/autodot/branch/master/graph/badge.svg)](https://codecov.io/gh/ajmalsiddiqui/autodot)
 [![Downloads/week](https://img.shields.io/npm/dw/autodot.svg)](https://npmjs.org/package/autodot)
 [![License](https://img.shields.io/npm/l/autodot.svg)](https://github.com/ajmalsiddiqui/autodot/blob/master/package.json)
 
