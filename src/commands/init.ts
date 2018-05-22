@@ -1,9 +1,8 @@
 import {Command, flags} from '@oclif/command'
 import cli from 'cli-ux'
 
-import * as fs from 'fs'
-
 import {config} from '../config/config'
+import {writeFileAsync} from '../utils/index'
 
 export default class Init extends Command {
 	static description = 'This command initializes an autodot repo by creating the autodot.json file'
@@ -27,32 +26,34 @@ export default class Init extends Command {
 	async run() {
 		const {flags} = this.parse(Init)
 		try {
-			const result = await this.makeConfigFile()
+			const result: string = await this.makeConfigFile()
 			this.log(result)
 		} catch (e) {
-			this.error(`An error occured:\n${e}`)
+			this.error(`${e}`)
 		}
 	}
 
-	async makeConfigFile() {		
-		const bootstrap = await cli.prompt('Bootstrap File')
-		const sync = await cli.prompt('Sync File')
-		const repository = await cli.prompt('GitHub Repository')
-		const autodot = {
-			commands: {
-				bootstrap: bootstrap,
-				sync: sync
-			},
-			repository: repository
-			// removing this field because root is local 
-			// root: process.cwd()
+	async makeConfigFile() {
+		// TODO: do something about this messed up error handling situation :'(
+		let bootstrap, sync, repository, autodot
+		try {
+			bootstrap = await cli.prompt('Bootstrap Command')
+			sync = await cli.prompt('Sync Command')
+			repository = await cli.prompt('GitHub Repository')
+			autodot = {
+				commands: {
+					bootstrap: bootstrap,
+					sync: sync
+				},
+				repository: repository
+				// removing this field because root is local 
+				// root: process.cwd()
+			}
+			await writeFileAsync(`${config.autodotPath}/autodot.json`, JSON.stringify(autodot, null, 2))
+			return 'Successfully created autodot.json'
+		} catch(e) {
+			throw e
 		}
-		return new Promise((resolve, reject) => {
-			fs.writeFile(`${config.autodotPath}/autodot.json`, JSON.stringify(autodot, null, 2), err => {
-				if (err) reject(err)
-				resolve('Successfully created autobot.json')
-			});
-		})
 	}
 
 }

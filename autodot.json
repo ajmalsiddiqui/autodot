@@ -5,6 +5,6 @@
   },
   "repository": "https://github.com/ajmalsiddiqui/dotfiles",
   "scripts": {
-    "hello": "echo hello"
+    "hello": "echo world"
   }
 }

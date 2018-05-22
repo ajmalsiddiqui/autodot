@@ -17,7 +17,6 @@ export default class Run extends Command {
 		try {
 			const {args} = this.parse(Run)
 			await runScript(args.scriptName)
-			// this.log('Syncing done')
 		} catch(e) {
 			this.error(e)
 		}
