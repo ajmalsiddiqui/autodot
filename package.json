@@ -36,7 +36,9 @@
   ],
   "homepage": "https://github.com/ajmalsiddiqui/autodot",
   "keywords": [
-    "oclif"
+    "oclif",
+    "autodot",
+    "dotfiles"
   ],
   "license": "MIT",
   "main": "lib/index.js",
