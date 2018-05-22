@@ -1,8 +1,8 @@
 import * as fs from 'fs'
 import {execSync} from 'child_process'
-import { resolve } from 'path';
+import { resolve } from 'path'
 
-import {Clone} from 'nodegit' 
+import {Clone} from 'nodegit'
 
 import {config} from '../config/config'
 
@@ -63,7 +63,7 @@ export const writeFileAsync: Function = (path: string, data: string) => {
 // async version of the clone function of nodegit
 export const cloneAsync: Function = (link: string, path: string) => {
 	return new Promise((resolve, reject) => {
-		Clone(link, path)
+		Clone.clone(link, path)
 			.then((repo: Object) => resolve('success'))
 			.catch((e: Error) => reject(e))
 	})
