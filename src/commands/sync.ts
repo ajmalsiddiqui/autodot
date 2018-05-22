@@ -3,7 +3,7 @@ import {Command, flags, run} from '@oclif/command'
 import {runCoreCommand} from '../utils/index'
 
 export default class Sync extends Command {
-	static description = 'This command syncs the dotfiles in the dotfile project directory with the actual ones using the corresponding command specified in autodot.json'
+	static description = 'This command syncs the dotfiles in the dotfile project directory with the actual ones by executing the corresponding command specified in autodot.json'
 
 	static examples = [
 		`$ autodot sync`

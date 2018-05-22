@@ -8,7 +8,7 @@ import {config} from '../config/config'
 import {runCoreCommand, cloneAsync} from '../utils/index'
 
 export default class Install extends Command {
-	static description = 'This command "installs" the dotfiles from a remote dotfiles repo on GitHub on your system, assuming it has an autodot.json file. If no argument is provided, the command attempts to find an autodot.json file in the current directory, and, if it has a repository field, installs it.'
+	static description = 'This command "installs" the dotfiles from a remote dotfiles repo on GitHub on your system, assuming it has an autodot.json file. If no argument is provided, the command attempts to find an autodot.json file in the current directory, and, if it has a repository field, installs it (this functionality has not been implemented yet).'
 
 	static examples = [
 		`$ autodot install <github_url>`,
@@ -29,7 +29,7 @@ export default class Install extends Command {
 				const result = await this.cloneRepo(args.gitRepo)
 				this.log(result.message)
 				this.bootstrapSystem(result.repoName)
-			}
+			} 
 
 		} catch(e) {
 			this.error(e)

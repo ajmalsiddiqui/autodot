@@ -9,7 +9,7 @@ export default class Init extends Command {
 
 	static examples = [
 		`$ autodot init
-		TODO: add example here :p
+		TODO: add example here
 		`
 	]
 

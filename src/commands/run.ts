@@ -3,7 +3,7 @@ import {Command, flags, run} from '@oclif/command'
 import {runScript} from '../utils/index'
 
 export default class Run extends Command {
-	static description = 'This command runs a script specified as an argument'
+	static description = 'This command runs a script specified as an argument. Scripts are specified in the "scripts" section of autodot.json. See the example autodot.json and the introduction for more details.'
 
 	static examples = [
 		`$ autodot run script-name`

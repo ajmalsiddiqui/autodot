@@ -4,7 +4,7 @@ import cli from 'cli-ux'
 import {runCoreCommand} from '../utils/index'
 
 export default class Bootstrap extends Command {
-	static description = 'This command bootstraps a new system with your dotfiles by executing the corresponding command specified in autodot.json'
+	static description = 'This command bootstraps a new system with your dotfiles by executing the bootstrap command specified in autodot.json'
 
 	static examples = [
 		`$ autodot bootstrap`
