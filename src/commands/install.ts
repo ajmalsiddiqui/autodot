@@ -26,7 +26,8 @@ export default class Install extends Command {
       if (args.gitRepo) {
         const result = await this.cloneRepo(args.gitRepo)
         this.log(result.message)
-        this.bootstrapSystem(result.repoName)
+        const bootstrap = await this.bootstrapSystem(result.repoName)
+        this.log(bootstrap)
       }
 
     } catch (e) {
