@@ -11,6 +11,7 @@
     "@oclif/command": "^1.4.13",
     "@oclif/config": "^1.6.3",
     "@oclif/plugin-help": "^1.2.4",
+    "cli-ux": "^4.3.1",
     "nodegit": "^0.22.0"
   },
   "devDependencies": {
@@ -55,7 +56,8 @@
     "posttest": "tsc -p . --noEmit && tslint -p . -t stylish",
     "prepack": "rm -rf lib && tsc && oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md",
+    "lint": "tslint --fix 'src/**/*{.ts,.tsx}'"
   },
   "types": "lib/index.d.ts"
 }
