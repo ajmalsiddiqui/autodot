@@ -19,7 +19,7 @@ $ npm install -g autodot
 $ autodot COMMAND
 running command...
 $ autodot (-v|--version|version)
-autodot/0.1.0 darwin-x64 node-v9.11.1
+autodot/0.1.1 darwin-x64 node-v9.11.1
 $ autodot --help [COMMAND]
 USAGE
   $ autodot COMMAND
@@ -37,7 +37,7 @@ USAGE
 
 ## autodot bootstrap
 
-This command bootstraps a new system with your dotfiles by executing the corresponding command specified in autodot.json
+This command bootstraps a new system with your dotfiles by executing the bootstrap command specified in autodot.json
 
 ```
 USAGE
@@ -47,7 +47,7 @@ EXAMPLE
   $ autodot bootstrap
 ```
 
-_See code: [src/commands/bootstrap.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.0/src/commands/bootstrap.ts)_
+_See code: [src/commands/bootstrap.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.1/src/commands/bootstrap.ts)_
 
 ## autodot help [COMMAND]
 
@@ -80,14 +80,14 @@ OPTIONS
 
 EXAMPLE
   $ autodot init
-  		TODO: add example here :p
+  		TODO: add example here
 ```
 
-_See code: [src/commands/init.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.0/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.1/src/commands/init.ts)_
 
 ## autodot install [GITREPO]
 
-This command "installs" the dotfiles from a remote dotfiles repo on GitHub on your system, assuming it has an autodot.json file. If no argument is provided, the command attempts to find an autodot.json file in the current directory, and, if it has a repository field, installs it.
+This command "installs" the dotfiles from a remote dotfiles repo on GitHub on your system, assuming it has an autodot.json file. If no argument is provided, the command attempts to find an autodot.json file in the current directory, and, if it has a repository field, installs it (this functionality has not been implemented yet).
 
 ```
 USAGE
@@ -99,11 +99,11 @@ EXAMPLES
   $ autodot install
 ```
 
-_See code: [src/commands/install.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.0/src/commands/install.ts)_
+_See code: [src/commands/install.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.1/src/commands/install.ts)_
 
 ## autodot run [SCRIPTNAME]
 
-This command runs a script specified as an argument
+This command runs a script specified as an argument. Scripts are specified in the "scripts" section of autodot.json. See the example autodot.json and the introduction for more details.
 
 ```
 USAGE
@@ -113,11 +113,11 @@ EXAMPLE
   $ autodot run script-name
 ```
 
-_See code: [src/commands/run.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.0/src/commands/run.ts)_
+_See code: [src/commands/run.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.1/src/commands/run.ts)_
 
 ## autodot sync
 
-This command syncs the dotfiles in the dotfile project directory with the actual ones using the corresponding command specified in autodot.json
+This command syncs the dotfiles in the dotfile project directory with the actual ones by executing the corresponding command specified in autodot.json
 
 ```
 USAGE
@@ -127,5 +127,5 @@ EXAMPLE
   $ autodot sync
 ```
 
-_See code: [src/commands/sync.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.0/src/commands/sync.ts)_
+_See code: [src/commands/sync.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.1/src/commands/sync.ts)_
 <!-- commandsstop -->
