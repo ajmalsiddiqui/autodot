@@ -9,8 +9,12 @@ A minimal dotfile manager for those magical entities.
 [![License](https://img.shields.io/npm/l/autodot.svg)](https://github.com/ajmalsiddiqui/autodot/blob/master/package.json)
 
 <!-- toc -->
+* [Motivation](#motivation)
 * [Usage](#usage)
+* [Guide](#guide)
 * [Commands](#commands)
+* [Example Autodot File](#example-autodot-file)
+
 <!-- tocstop -->
 # Usage
 <!-- usage -->
@@ -19,13 +23,75 @@ $ npm install -g autodot
 $ autodot COMMAND
 running command...
 $ autodot (-v|--version|version)
-autodot/0.1.1 darwin-x64 node-v9.11.1
+autodot/0.1.0 darwin-x64 node-v9.11.1
 $ autodot --help [COMMAND]
 USAGE
   $ autodot COMMAND
 ...
 ```
 <!-- usagestop -->
+# Motivation
+<!-- motivation -->
+Autodot was built with two dotfile management philosophies in mind:
+* Your approach to managing dotfiles is totally up to you. It can be as crazy and unique as you want.
+* Dotfiles are meant to be shared, and sharing them should be easy and intuitive. The nuances of an individual's approach to managing their dotfiles shouldn't get in the way of other people trying to use them.
+
+Additionally, Autodot aims to standardize your entire dotfile management workflow to further make your approach scalable and easily shared.
+
+Autodot does this by requiring you to define your approach to a few standard dotfile management tasks - bootstraping a system with your dotfiles and syncing the changes you make in your local dotfiles repo with the dotfiles in your home directory. 
+
+How is typing `autodot bootstrap` or `autodot sync` better than typing `sh bootstrap.sh` or `sh sync.sh`? There are two arguments in the favor of Autodot:
+1. Everyone who uses Autodot will bootstrap or sync their dotfiles using the same commands. So there is no need for guesswork, documentation or understanding the approach of a person whose dotfiles you wanna try - you know it's always `autodot bootstrap` or `autodot sync`.
+2. Your approach to bootstrapping or syncing may not be a simple shell script. Maybe your scripts are split into multiple files that have to be called in order, or maybe you want to do a few additional tasks before and after bootstrapping/syncing. Or perhaps some conditional executions. Or maybe your bootstrap/sync process is so simple that writing a script is overkill. Instead of writing another script to put everything together, do something like this for the bootstrap or sync command in your `autodot.json`:
+```
+bootstrap": "sh before_bootstrap.sh && bootstrap.sh || echo 'something went wrong while setting things up'"
+```
+
+Finally, Autodot standardizes the way you manege your dotfiles by allowing the use of custom scripts and makes installing someones dotfiles a piece of cake. Check out the relevant sections in the [Guide](#guide).
+<!-- motivationstop -->
+# Guide
+<!-- guide -->
+### 1. Installation and Basic Usage
+Install autodot with `npm install -g autodot` and cd into your local dotfiles repo.
+
+Run `autodot init` to generate `autodot.json`. This will ask you to specifiy the commands to execute for bootstrapping a system with your dotfiles and for syncing dotfiles from your repo with those in the home directory. It will also ask for the link to the GitHub repo of the dotfiles.
+
+Say you have scripts called `bootstrap.sh` and `sync.sh` for bootstrapping and syncing respectively. So you should type `sh bootstrap.sh` and `sh sync.sh` as when prompted for the bootstrap or sync commands. This will be saved to `autodot.json`.
+
+Now, when you execute `autodot bootstrap` or `autodot sync` the corresponding commands (i.e. `sh bootstrap.sh` and `sh sync.sh`) are executed.
+
+### 2. Using Custom Scripts
+You can also edit the `autodot.json` file to manually include a `scripts` object that contains custom commands that you may use to manage your dotfiles. The commands can then be invoked by running `autodot run <command_name>`. For example, consider this `autodot.json` (truncated for brevity):
+
+```
+{
+  ...
+  "scripts": {
+    "hello": "echo hello",
+    "clean": "rm -rf tmp",
+    "reload": "source .bash_profile"
+  }
+}
+```
+
+Running `autodot run hello` will execute the corresponding command, i.e., `echo hello` and thus print "hello" to stdout.
+
+Scripts can be used to put all your dotfile management commands in one place and have a consistent way of executing them. They are also useful for brevity if you want to execute multiple commands in succession. You can create an alias to achieve the same functionality, but having a consistent way of executing commands that relate to _managing your dotfiles_ but not to _the dotfiles themselves_ and delegating these commands to autodot makes the distinction between code used to manage the dotfiles and the dotfiles themselves clearer and makes your dotfiles easy to use for other people who may not be familiar with your way of doing things.
+
+### 3. Installing Dotfiles that Use Autodot
+One of the core philosophies behind autodot is that dotfiles are meant to be shared, and sharing them should be a breeze. At the same time, doing things your way is how you make your dotfiles your own.  The `autodot bootstrap` command allows you to freely choose how you bootstrap a system with your dotfiles while making it easy for other people to do the same without knowing/understanding the nuances of your approach, thus abstracting away the underlying approach.
+
+With this approach, your flow when installing dotfiles will be something like this:
+```
+$ git clone <your_dotfiles_repo>
+$ cd <your_dotfiles_repo>
+$ autodot bootstrap
+```
+
+However, autodot makes it even easier to install dotfiles from a remote repository with the [`autodot install`](#autodot-install-gitrepo) command. This command clones the repository given as a command line argument and runs the bootstrap command.
+`autodot install <your_dotfiles_repo>` is all it takes!
+
+<!-- guidestop -->
 # Commands
 <!-- commands -->
 * [autodot bootstrap](#autodot-bootstrap)
@@ -37,7 +103,7 @@ USAGE
 
 ## autodot bootstrap
 
-This command bootstraps a new system with your dotfiles by executing the bootstrap command specified in autodot.json
+This command bootstraps a new system with your dotfiles by executing the corresponding command specified in autodot.json
 
 ```
 USAGE
@@ -47,7 +113,7 @@ EXAMPLE
   $ autodot bootstrap
 ```
 
-_See code: [src/commands/bootstrap.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.1/src/commands/bootstrap.ts)_
+_See code: [src/commands/bootstrap.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.0/src/commands/bootstrap.ts)_
 
 ## autodot help [COMMAND]
 
@@ -80,30 +146,30 @@ OPTIONS
 
 EXAMPLE
   $ autodot init
-  		TODO: add example here
+  		TODO: add example here :p
 ```
 
-_See code: [src/commands/init.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.1/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.0/src/commands/init.ts)_
 
 ## autodot install [GITREPO]
 
-This command "installs" the dotfiles from a remote dotfiles repo on GitHub on your system, assuming it has an autodot.json file. If no argument is provided, the command attempts to find an autodot.json file in the current directory, and, if it has a repository field, installs it (this functionality has not been implemented yet).
+This command "installs" the dotfiles from a remote dotfiles repo on GitHub on your system, assuming it has an autodot.json file. If no argument is provided, the command attempts to find an autodot.json file in the current directory, and, if it has a repository field, installs it.
 
 ```
 USAGE
   $ autodot install [GITREPO]
 
 EXAMPLES
-  $ autodot install <github_url>
+  $ autodot install https://github.com/ajmalsiddiqui/autodot
 
   $ autodot install
 ```
 
-_See code: [src/commands/install.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.1/src/commands/install.ts)_
+_See code: [src/commands/install.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.0/src/commands/install.ts)_
 
 ## autodot run [SCRIPTNAME]
 
-This command runs a script specified as an argument. Scripts are specified in the "scripts" section of autodot.json. See the example autodot.json and the introduction for more details.
+This command runs a script specified as an argument
 
 ```
 USAGE
@@ -113,11 +179,11 @@ EXAMPLE
   $ autodot run script-name
 ```
 
-_See code: [src/commands/run.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.1/src/commands/run.ts)_
+_See code: [src/commands/run.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.0/src/commands/run.ts)_
 
 ## autodot sync
 
-This command syncs the dotfiles in the dotfile project directory with the actual ones by executing the corresponding command specified in autodot.json
+This command syncs the dotfiles in the dotfile project directory with the actual ones using the corresponding command specified in autodot.json
 
 ```
 USAGE
@@ -127,5 +193,22 @@ EXAMPLE
   $ autodot sync
 ```
 
-_See code: [src/commands/sync.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.1/src/commands/sync.ts)_
+_See code: [src/commands/sync.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.0/src/commands/sync.ts)_
 <!-- commandsstop -->
+# Example Autodot File
+<!-- example -->
+Here's an example `autodot.json` file. It's pretty self-explanatory!
+```
+{
+  "commands": {
+    "bootstrap": "sh bootstrap.sh && rm -rf tmp",
+    "sync": "sh sync.sh"
+  },
+  "repository": "https://github.com/ajmalsiddiqui/dotfiles",
+  "scripts": {
+    "refresh": "source .bash_profile",
+    "say-hello": "echo hello"
+  }
+}
+```
+<!-- examplestop -->
