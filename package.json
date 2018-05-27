@@ -1,7 +1,7 @@
 {
   "name": "autodot",
   "description": "A minimal dotfile manager for those magical entities.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Mohammed Ajmal Siddiqui @ajmalsiddiqui",
   "bin": {
     "autodot": "./bin/run"
