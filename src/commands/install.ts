@@ -37,7 +37,8 @@ export default class Install extends Command {
 
   async cloneRepo(repoLink: string) {
     try {
-      const repo: string[] = repoLink.split('/').slice(-2)
+      const repo: string[] = repoLink.split('.com/')[1].split('/')
+      
       const repoName: string = repo[0] + '_' + repo[1]
 
       this.log(`Cloning into ${repoName}`)
@@ -66,3 +67,4 @@ export default class Install extends Command {
     }
   }
 }
+
