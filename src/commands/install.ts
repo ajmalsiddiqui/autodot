@@ -1,4 +1,4 @@
-import {Command} from '@oclif/command'
+import {Command, flags} from '@oclif/command'
 
 import {join} from 'path'
 
@@ -6,12 +6,17 @@ import {config} from '../config/config'
 import {cloneAsync, runCoreCommand} from '../utils/index'
 
 export default class Install extends Command {
-  static description = 'This command "installs" the dotfiles from a remote dotfiles repo on GitHub on your system, assuming it has an autodot.json file. If no argument is provided, the command attempts to find an autodot.json file in the current directory, and, if it has a repository field, installs it (this functionality has not been implemented yet).'
+  static description = 'This command "installs" the dotfiles from a dotfiles repo on your system, assuming it has an autodot.json file. The command works with a specific branch too by using the -b or --branch flags (see examples). If no argument is provided, the command attempts to find an autodot.json file in the current directory, and, if it has a repository field, installs it (this functionality has not been implemented yet).'
 
   static examples = [
     '$ autodot install <github_url>',
+    '$ autodot install -b <autodot_branch> <github_url>',
     '$ autodot install'
   ]
+
+  static flags = {
+    branch: flags.string({char: 'b'})
+  }
 
   static args = [
     {name: 'gitRepo'}
@@ -21,11 +26,11 @@ export default class Install extends Command {
     // TODO: error handling needs to be fixed
     // TODO: add functionality to handle a case where an argument is not there
     try {
-      const {args} = this.parse(Install)
+      const {flags, args} = this.parse(Install)
 
       if (args.gitRepo) {
         const result = await this.cloneRepo(args.gitRepo, {
-          checkoutBranch: 'autodot'
+          checkoutBranch: flags.branch ? flags.branch : 'master'
         })
 
         this.log(result.message)
