@@ -23,7 +23,8 @@ export const runCoreCommand = (commandName: string, autodotPath: string = `${con
       }
       try {
         execSync(command, {
-          stdio: 'inherit'
+          stdio: 'inherit',
+          cwd: `${autodotPath}`
         })
         resolve('success')
       } catch (e) {
@@ -43,7 +44,10 @@ export const runScript = (scriptName: string, autodotPath: string = `${config.au
         reject(new Error(`${scriptName} script not specified in autodot.json. Add this command manually.`))
       }
       try {
-        execSync(script, {stdio: 'inherit'})
+        execSync(script, {
+          stdio: 'inherit',
+          cwd: `${autodotPath}`
+        })
         resolve('success')
       } catch (e) {
         reject(e)
