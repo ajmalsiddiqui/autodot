@@ -22,7 +22,7 @@ $ npm install -g autodot
 $ autodot COMMAND
 running command...
 $ autodot (-v|--version|version)
-autodot/0.1.6 darwin-x64 node-v9.11.1
+autodot/0.1.7 darwin-x64 node-v9.11.1
 $ autodot --help [COMMAND]
 USAGE
   $ autodot COMMAND
@@ -112,7 +112,7 @@ EXAMPLE
   $ autodot bootstrap
 ```
 
-_See code: [src/commands/bootstrap.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.6/src/commands/bootstrap.ts)_
+_See code: [src/commands/bootstrap.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.7/src/commands/bootstrap.ts)_
 
 ## autodot help [COMMAND]
 
@@ -148,7 +148,7 @@ EXAMPLE
   		TODO: add example here
 ```
 
-_See code: [src/commands/init.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.6/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.7/src/commands/init.ts)_
 
 ## autodot install [GITREPO]
 
@@ -169,7 +169,7 @@ EXAMPLES
   $ autodot install
 ```
 
-_See code: [src/commands/install.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.6/src/commands/install.ts)_
+_See code: [src/commands/install.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.7/src/commands/install.ts)_
 
 ## autodot run [SCRIPTNAME]
 
@@ -183,7 +183,7 @@ EXAMPLE
   $ autodot run script-name
 ```
 
-_See code: [src/commands/run.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.6/src/commands/run.ts)_
+_See code: [src/commands/run.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.7/src/commands/run.ts)_
 
 ## autodot sync
 
@@ -197,7 +197,7 @@ EXAMPLE
   $ autodot sync
 ```
 
-_See code: [src/commands/sync.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.6/src/commands/sync.ts)_
+_See code: [src/commands/sync.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.7/src/commands/sync.ts)_
 <!-- commandsstop -->
 # Example Autodot File
 <!-- example -->
