@@ -24,7 +24,10 @@ export default class Install extends Command {
       const {args} = this.parse(Install)
 
       if (args.gitRepo) {
-        const result = await this.cloneRepo(args.gitRepo)
+        const result = await this.cloneRepo(args.gitRepo, {
+          checkoutBranch: 'autodot'
+        })
+
         this.log(result.message)
         const bootstrap = await this.bootstrapSystem(result.repoName)
         this.log(bootstrap)
@@ -35,16 +38,14 @@ export default class Install extends Command {
     }
   }
 
-  async cloneRepo(repoLink: string) {
+  async cloneRepo(repoLink: string, options = {}) {
     try {
-      const repo: string[] = repoLink.split('.com/')[1].split('/')
-
-      const repoName: string = repo[0] + '_' + repo[1]
+      const repoName = repoLink.split('/').slice(-1)
 
       this.log(`Cloning into ${repoName}`)
 
       // remember that everything is relative to the cwd when the command is called
-      await cloneAsync(repoLink, `${config.repoPath}/${repoName}`)
+      await cloneAsync(repoLink, `${config.repoPath}/${repoName}`, options)
       return {
         message: `Successfully cloned dotfiles from ${repoLink} into ${config.repoPath}/${repoName}`,
         repoName: `${repoName}`
