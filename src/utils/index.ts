@@ -1,7 +1,7 @@
 import {execSync} from 'child_process'
 import * as fs from 'fs'
 
-import {Clone, CloneOptions} from 'nodegit'
+import {Clone} from 'nodegit'
 
 import {config} from '../config/config'
 
@@ -64,7 +64,7 @@ export const writeFileAsync = (path: string, data: string) => {
 }
 
 // async version of the clone function of nodegit
-// the options object currently only contains support for 
+// the options object currently only contains support for
 // the checkoutBranch option of nodegit
 export const cloneAsync = (link: string, path: string, cloneOptions: object) => {
   return new Promise((resolve, reject) => {
