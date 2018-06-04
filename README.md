@@ -14,6 +14,7 @@ A minimal dotfile manager for those magical entities.
 * [Guide](#guide)
 * [Commands](#commands)
 * [Example Autodot File](#example-autodot-file)
+* [Contributing](#contributing)
 <!-- tocstop -->
 # Usage
 <!-- usage -->
@@ -216,3 +217,6 @@ Here's an example `autodot.json` file. It's pretty self-explanatory!
 }
 ```
 <!-- examplestop -->
+# Contributing
+<!-- contributing -->
+You want to contribute to autodot? That's great! Check out the CONTRIBUTING.md file in this repository for the guidelines or the TODO.md file for inspiration for something to work on.
