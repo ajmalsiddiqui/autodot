@@ -1,7 +1,13 @@
 # Contributing
 ___
 
-It's awesome that you want to contribute to Autodot! Whether you're a first time contributor, or someone more experienced, you should read this document thoroughly before submitting a pull request. Make sure every contribution adheres to the [guidelines](#guidelines).
+It's awesome that you want to contribute to Autodot! Whether you're a first time contributor, or someone more experienced, you should read this document thoroughly before submitting a pull request. Make sure every contribution adheres to the [guidelines](#guidelines). There's also a TODO.md file in this repo in case you're looking for inspiration.
+
+### Contents
+1. [How Can You Contribute?](#how-can-you-contribute?)
+2. [Guidelines](#guidelines)
+3. [Submitting A Bug Report](#submitting-a-bug-report)
+4. [Contributing Code](#contributing-code)
 
 ### How Can You Contribute?
 Writing code isn't the only way to contribute to this project. You can also contribute to it by:
