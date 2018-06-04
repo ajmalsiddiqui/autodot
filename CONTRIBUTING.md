@@ -1,7 +1,7 @@
 # Contributing
 ___
 
-It's awesome that you want to contribute to Autodot! Whether you're a first time contributor, or someone more experienced, you should read this document thoroughly before submitting a pull request. Make sure every contribution adheres to the [guidelines](#guidelines). There's also a TODO.md file in this repo in case you're looking for inspiration.
+It's awesome that you want to contribute to Autodot! Whether you're a first time contributor, or someone more experienced, you should read this document thoroughly before submitting a pull request. Make sure every contribution adheres to the [guidelines](#guidelines). There's also a [TODO.md](https://github.com/ajmalsiddiqui/autodot/blob/master/TODO.md) file in this repo in case you're looking for inspiration.
 
 ### Contents
 1. [How Can You Contribute?](#how-can-you-contribute?)

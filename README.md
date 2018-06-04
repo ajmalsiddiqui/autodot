@@ -219,4 +219,4 @@ Here's an example `autodot.json` file. It's pretty self-explanatory!
 <!-- examplestop -->
 # Contributing
 <!-- contributing -->
-You want to contribute to autodot? That's great! Check out the CONTRIBUTING.md file in this repository for the guidelines or the TODO.md file for inspiration for something to work on.
+You want to contribute to autodot? That's great! Check out the [CONTRIBUTING.md](https://github.com/ajmalsiddiqui/autodot/blob/master/CONTRIBUTING.md) file in this repository for the guidelines or the [TODO.md](https://github.com/ajmalsiddiqui/autodot/blob/master/TODO.md) file for inspiration for something to work on.
