@@ -13,9 +13,11 @@ A minimal dotfile manager for those magical entities.
 * [Motivation](#motivation)
 * [Guide](#guide)
 * [Commands](#commands)
+* [Dotfile Repositories That Use Autodot](#dotfile-repositories-that-use-autodot)
 * [Example Autodot File](#example-autodot-file)
 * [Contributing](#contributing)
 <!-- tocstop -->
+
 # Usage
 <!-- usage -->
 ```sh-session
@@ -200,6 +202,13 @@ EXAMPLE
 
 _See code: [src/commands/sync.ts](https://github.com/ajmalsiddiqui/autodot/blob/v0.1.8/src/commands/sync.ts)_
 <!-- commandsstop -->
+
+# Dotfile Repositories That Use Autodot
+> Note:
+If your dotfiles repo uses `autodot`, feel free to make a PR!
+
+1. [ajmalsiddiqui's dotfiles](https://github.com/ajmalsiddiqui/dotfiles) ([autodot branch](https://github.com/ajmalsiddiqui/dotfiles/tree/autodot))
+
 # Example Autodot File
 <!-- example -->
 Here's an example `autodot.json` file. It's pretty self-explanatory!
