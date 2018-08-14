@@ -8,6 +8,7 @@ These are some of the things to be completed for autodot (some of these require 
 2. Add a flag to the `bootstrap` and `sync` commands to allow the invocation of default scripts (this assumes that 1 has been approved and completed)
 3. Add an `uninstall` field to `autodot.json` which let's users uninstall dotfiles (discuss this).
 4. **Important** Add tests for all the commands and mandate the writing of tests for new functionality.
+5. Consider adding multiple defaults (see point 1) for each command, each default having a different (standard) approach to achieving it's purpose.
 
 ### Misc
 1. Integrate code coverage reports (assumes that tests have been added in accordance with point 4 of the [code](#code) section).
