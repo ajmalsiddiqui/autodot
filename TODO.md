@@ -10,6 +10,7 @@ These are some of the things to be completed for autodot (some of these require 
 4. Assuming 3 is completed, allow users to give names to directories containing `autodot.json` files (like an alias), so that it is easy to invoke commands from various directories without having to remember their paths.
 5. A backup feature (implemented using an optional `backup` field in `autodot.json` with a default fallback) that allows one to backup their dotfiles, perhaps before installing new dotfiles.
 6. Assuming 5 is completed, add a flag to the `autodot install` command that automatically backs up existing dotfiles before installing new ones, using the `backup` command from 5.
+7. Assuming 5 is completed, a complementary `restore` command may also be added to restore the backed up dotfiles.
 
 ## Code
 1. Add default scripts for `bootstrap` and `sync` commands as fallbacks for when the `autodot.json` file has no value for the corresponding commands
